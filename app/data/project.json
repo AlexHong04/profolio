@@ -1,16 +1,5 @@
 [
   {
-    "year": "JUL 2024 - SEP 2024",
-    "title": "Travel Website",
-    "company": "Project Team Member",
-    "Job Category": "Full-stack development",
-    "description": [
-      "Developed a responsive travel booking website using HTML, CSS, JavaScript, and Bootstrap.",
-      "Solved integration issues, improving workflow and reducing merge conflicts by 30%.",
-      "Used Git version control and code reviews to support teamwork and collaboration."
-    ]
-  },
-  {
     "year": "JUL 2025 - SEP 2025",
     "title": "Customer Relationship Management System",
     "company": "Project Team Member",
@@ -19,6 +8,17 @@
       "Led a team to build a CRM system with Java (backend) and React.js (frontend), applying Agile methodology.",
       "Implemented CRUD, authentication, and password reset using OOP and UML design.",
       "Integrated relational databases and resolved technical challenges, strengthening problem-solving and collaboration skills."
+    ]
+  },
+  {
+    "year": "JUL 2024 - SEP 2024",
+    "title": "Travel Website",
+    "company": "Project Team Member",
+    "Job Category": "Full-stack development",
+    "description": [
+      "Developed a responsive travel booking website using HTML, CSS, JavaScript, and Bootstrap.",
+      "Solved integration issues, improving workflow and reducing merge conflicts by 30%.",
+      "Used Git version control and code reviews to support teamwork and collaboration."
     ]
   },
   {
