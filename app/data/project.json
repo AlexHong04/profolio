@@ -1,0 +1,49 @@
+[
+  {
+    "year": "JUL 2024 - SEP 2024",
+    "title": "Travel Website",
+    "company": "Project Team Member",
+    "Job Category": "Full-stack development",
+    "description": [
+      "Developed a responsive travel booking website using HTML, CSS, JavaScript, and Bootstrap.",
+      "Solved integration issues, improving workflow and reducing merge conflicts by 30%.",
+      "Used Git version control and code reviews to support teamwork and collaboration."
+    ]
+  },
+  {
+    "year": "JUL 2025 - SEP 2025",
+    "title": "Customer Relationship Management System",
+    "company": "Project Team Member",
+    "Job Category": "Full-stack development",
+    "description": [
+      "Led a team to build a CRM system with Java (backend) and React.js (frontend), applying Agile methodology.",
+      "Implemented CRUD, authentication, and password reset using OOP and UML design.",
+      "Integrated relational databases and resolved technical challenges, strengthening problem-solving and collaboration skills."
+    ]
+  },
+  {
+    "year": "JUL 2024 - SEP 2024",
+    "title": "Warehouse Management System",
+    "company": "Project Team Leader",
+    "Job Category": "Backend development",
+    "description": [
+      "Backend development Implement a system using Java.",
+      "Used UML class diagrams and object-oriented programming concepts to create a good program design that facilitates coding.",
+      "Implement the Person Module method including CRUD, login, logout, and reset password.",
+      "Conducted source code reviews, and maintained Git pipelines and repositories to GitHub"
+    ]
+  },
+  {
+    "year": "MAR 2024 - MAY 2024",
+    "title": "Train Ticketing System",
+    "company": "Project Team Leader",
+    "Job Category": "Backend development",
+    "description": [
+      "Backend development, built a system using C language.",
+      "Combined the other three module codes developed by team members.",
+      "Used flow chat and structure chat to have a good program design to facilitate coding.",
+      "Implemented staff Module functionalities including CRUD, login, logout, reset password.",
+      "Conducted source code reviews, and maintained Git pipelines and repositories to GitHub."
+    ]
+  }
+]

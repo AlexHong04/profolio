@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import data from '../data/technicalSkill.json';
+import languageData from "../data/language.json";
 
 const TechnicalSkills = () => {
     const [skills] = useState(data);
+    const [languages] = useState(languageData);
 
     useEffect(() => {
         require('waypoints/lib/noframework.waypoints.min.js');
@@ -35,6 +37,8 @@ const TechnicalSkills = () => {
     }, []);
 
     return ( 
+      <>
+        {/* techinical skill */}
         <section id="technicalSkill" className="skills section-bg" style={{marginBottom: '200px'}}>
             <div className="container" data-aos="fade-up">
               <div className="section-title">
@@ -72,6 +76,46 @@ const TechnicalSkills = () => {
               </div>
             </div>
         </section>
+
+          {/* language */}
+         <section id="technicalSkill" className="skills section-bg" style={{marginBottom: '200px'}}>
+            <div className="container" data-aos="fade-up">
+              <div className="section-title">
+                  <h2>Language</h2>
+              </div>
+              <div className="row skills-content">
+                <div className="col-lg-6">
+                  {
+                      languages && languages.slice(0, Math.ceil(languages.length / 2)).map((lang, index) => {
+                          return(
+                            <div className="progress" key={'lang' + index}>
+                              <span className="skill">{lang.skill}<i className="val">{lang.percentage}%</i></span>
+                              <div className="progress-bar-wrap">
+                                <div className="progress-bar" role="progressbar" aria-valuenow={lang.percentage} aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          )
+                      })
+                  }
+                </div>
+                <div className="col-lg-6">
+                  {
+                      languages && languages.slice(Math.ceil(languages.length / 2)).map((lang, index) => {
+                          return(
+                            <div className="progress" key={'lang' + index}>
+                              <span className="skill">{lang.skill}<i className="val">{lang.percentage}%</i></span>
+                              <div className="progress-bar-wrap">
+                                <div className="progress-bar" role="progressbar" aria-valuenow={lang.percentage} aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          )
+                      })
+                  }
+                </div>
+              </div>
+            </div>
+        </section>
+        </>
     );
 }
  
