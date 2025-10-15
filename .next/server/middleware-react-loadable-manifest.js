@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"app\\\\components\\\\importJS.js -> ../assets/js/main.js\":{\"id\":\"app\\\\components\\\\importJS.js -> ../assets/js/main.js\",\"files\":[\"static/chunks/_app-pages-browser_app_assets_js_main_js.js\"]},\"app\\\\components\\\\importJS.js -> bootstrap/dist/js/bootstrap.bundle.min.js\":{\"id\":\"app\\\\components\\\\importJS.js -> bootstrap/dist/js/bootstrap.bundle.min.js\",\"files\":[\"static/chunks/_app-pages-browser_node_modules_bootstrap_dist_js_bootstrap_bundle_min_js.js\"]}}"
