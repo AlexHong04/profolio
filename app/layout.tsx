@@ -24,7 +24,7 @@ export default function RootLayout({
         <Header />
 
         {/* Main content */}
-        <main className="min-h-screen">{children}</main>
+        {children}
 
         {/* ======= Footer ======= */}
         {/* <Footer /> */}

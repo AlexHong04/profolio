@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
+    <main className="min-h-screen">
       <div className="flex items-center justify-center h-screen bg-gradient-to-b from-white to-slate-100">
         <div className="text-center p-8">
           <h1 className="text-4xl font-extrabold text-gray-900">
@@ -13,5 +14,6 @@ export default function Home() {
           </p>
         </div>
       </div>
+    </main>
   );
 }
