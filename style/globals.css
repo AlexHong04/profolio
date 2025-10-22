@@ -1,3 +1,10 @@
+/* Use v4 plugin imports */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* global styles can go below */
+html, body {
+	height: 100%;
+}
+
