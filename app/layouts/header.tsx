@@ -52,6 +52,7 @@ const Header: React.FC = () => {
                   // background: "radial-gradient(circle,rgba(235, 185, 206, 1) 0%, rgba(148, 187, 233, 1) 100%)",
                   background:
                     "linear-gradient(90deg, rgba(149, 145, 204, 0.5) 0%, rgba(160, 160, 232, 0.5) 35%, rgba(103, 185, 201, 0.5) 100%)",
+                    // "linear-gradient(90deg, rgba(145, 137, 199, 1) 0%, rgba(139, 143, 204, 1) 42%, rgba(120, 207, 227, 1) 100%)",
                   // background:
                   //   "linear-gradient(90deg, rgba(251, 245, 226, 1) 12%, rgba(238, 217, 231, 1) 36%, rgba(175, 216, 248, 1) 75%, rgba(137, 151, 210, 1) 100%)",
                 }

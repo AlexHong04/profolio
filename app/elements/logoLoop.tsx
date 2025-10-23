@@ -1,4 +1,9 @@
+"use client";
+
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600'], display: 'swap' });
 
 export type LogoItem =
   | {
@@ -29,6 +34,7 @@ export interface LogoLoopProps {
   fadeOut?: boolean;
   fadeOutColor?: string;
   scaleOnHover?: boolean;
+  showLabel?: boolean;
   ariaLabel?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -195,6 +201,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     fadeOut = false,
     fadeOutColor,
     scaleOnHover = false,
+    showLabel = false,
     ariaLabel = 'Partner logos',
     className,
     style
@@ -214,22 +221,36 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       return magnitude * directionMultiplier * speedMultiplier;
     }, [speed, direction]);
 
-    const updateDimensions = useCallback(() => {
-      const containerWidth = containerRef.current?.clientWidth ?? 0;
-      const sequenceWidth = seqRef.current?.getBoundingClientRect?.()?.width ?? 0;
+    const measureRaf = useRef<number | null>(null);
+    const MAX_COPIES = 6; // cap copies to limit DOM nodes
 
-      if (sequenceWidth > 0) {
-        setSeqWidth(Math.ceil(sequenceWidth));
-        const copiesNeeded = Math.ceil(containerWidth / sequenceWidth) + ANIMATION_CONFIG.COPY_HEADROOM;
-        setCopyCount(Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeeded));
-      }
+    const updateDimensions = useCallback(() => {
+      if (measureRaf.current) cancelAnimationFrame(measureRaf.current);
+      measureRaf.current = requestAnimationFrame(() => {
+        const containerWidth = containerRef.current?.clientWidth ?? 0;
+        const sequenceWidth = seqRef.current?.getBoundingClientRect?.()?.width ?? 0;
+
+        if (sequenceWidth > 0) {
+          const newSeq = Math.ceil(sequenceWidth);
+          // only update if size changed more than 4px to avoid frequent small updates
+          if (Math.abs(newSeq - (seqWidth || 0)) > 4) {
+            setSeqWidth(newSeq);
+          }
+          const copiesNeeded = Math.min(MAX_COPIES, Math.ceil(containerWidth / sequenceWidth) + ANIMATION_CONFIG.COPY_HEADROOM);
+          const newCopies = Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeeded);
+          if (newCopies !== copyCount) {
+            setCopyCount(newCopies);
+          }
+        }
+        measureRaf.current = null;
+      });
     }, []);
 
     useResizeObserver(updateDimensions, [containerRef, seqRef], [logos, gap, logoHeight]);
 
     useImageLoader(seqRef, updateDimensions, [logos, gap, logoHeight]);
 
-    useAnimationLoop(trackRef, targetVelocity, seqWidth, isHovered, pauseOnHover);
+  useAnimationLoop(trackRef, targetVelocity, seqWidth, isHovered, pauseOnHover);
 
     const cssVariables = useMemo(
       () =>
@@ -273,33 +294,41 @@ export const LogoLoop = React.memo<LogoLoopProps>(
               'inline-flex items-center',
               'motion-reduce:transition-none',
               scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
+                'transition-transform duration-300 ease-myease group-hover/item:scale-120'
             )}
             aria-hidden={!!(item as any).href && !(item as any).ariaLabel}
           >
             {(item as any).node}
+            {showLabel && (item as any).title ? (
+              <span className={`${poppins.className} ml-3 text-base leading-none text-gray-500 dark:text-gray-600 font-semibold tracking-wide`}>{(item as any).title}</span>
+            ) : null}
           </span>
         ) : (
-          <img
-            className={cx(
-              'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
-              '[-webkit-user-drag:none] pointer-events-none',
-              '[image-rendering:-webkit-optimize-contrast]',
-              'motion-reduce:transition-none',
-              scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
-            )}
-            src={(item as any).src}
-            srcSet={(item as any).srcSet}
-            sizes={(item as any).sizes}
-            width={(item as any).width}
-            height={(item as any).height}
-            alt={(item as any).alt ?? ''}
-            title={(item as any).title}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
-          />
+          <>
+            <img
+              className={cx(
+                'h-[var(--logoloop-logoHeight)] w-auto block object-contain',
+                '[-webkit-user-drag:none] pointer-events-none',
+                '[image-rendering:-webkit-optimize-contrast]',
+                'motion-reduce:transition-none',
+                scaleOnHover &&
+                  'transition-transform duration-300 ease-myease group-hover/item:scale-120'
+              )}
+              src={(item as any).src}
+              srcSet={(item as any).srcSet}
+              sizes={(item as any).sizes}
+              width={(item as any).width}
+              height={(item as any).height}
+              alt={(item as any).alt ?? ''}
+              title={(item as any).title}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+            />
+            {showLabel && ((item as any).alt || (item as any).title) ? (
+              <span className={`${poppins.className} ml-3 text-base leading-none text-gray-500 dark:text-gray-600 font-semibold tracking-wide`}>{(item as any).alt ?? (item as any).title}</span>
+            ) : null}
+          </>
         );
 
         const itemAriaLabel = isNodeItem
@@ -338,7 +367,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
           </li>
         );
       },
-      [scaleOnHover]
+      [scaleOnHover, showLabel]
     );
 
     const logoLists = useMemo(

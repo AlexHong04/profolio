@@ -1,0 +1,16 @@
+{
+    "name": "Tan Kok Hong",
+    "title": "Software Developer",
+    "socials": [
+        {
+            "name": "LinkedIn",
+            "url": "https://www.linkedin.com/in/tan-kok-hong-6b5702308/",
+            "icon": "bx bxl-linkedin"
+        },
+        {
+            "name": "Github",
+            "url": "https://github.com/AlexHong04",
+            "icon": "bx bxl-github"
+        }
+    ]
+}

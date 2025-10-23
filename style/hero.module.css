@@ -1,0 +1,40 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+}
+.title {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 800;
+  color: #0f172a; /* slate-900 */
+}
+
+.subtitle {
+  margin-top: 0.75rem;
+  color: #4b5563; /* slate-600 */
+}
+
+.logoArea {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.showcase {
+  margin-top: 1.5rem;
+}
+
+.label {
+  font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #e5e7eb; /* gray-200 */
+}

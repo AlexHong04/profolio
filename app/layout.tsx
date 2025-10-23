@@ -3,6 +3,7 @@ import "../style/globals.css";
 import Favicon from "../public/favicon.ico";
 import Header from "./layouts/header";
 import Footer from "./layouts/footer";
+import Hero from "./components/hero";
 
 export const metadata = {
   title: "Tan Kok Hong",
@@ -23,11 +24,14 @@ export default function RootLayout({
         {/* ======= Header ======= */}
         <Header />
 
+        {/* ======= Hero Section ======= */}
+        <Hero />
+
         {/* Main content */}
         {children}
 
         {/* ======= Footer ======= */}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );
