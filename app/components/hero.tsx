@@ -35,27 +35,26 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section
-      id="hero"
-      className={`${styles.hero} w-full flex flex-col justify-center px-20`}
-    >
-      <div
-        className="w-full flex flex-col items-start justify-center text-left"
-        data-aos="zoom-in"
-        data-aos-delay="100"
-      >
-        <h1 className={`${styles.title} text-4xl md:text-5xl`}>
-          {personal.name}
-        </h1>
-        <p className={`${styles.subtitle} mt-3 text-lg md:text-xl`}>
-          I&apos;m{" "}
-          <span
-            className="typed font-semibold text-indigo-600"
-            ref={el}
-            data-typed-items={personal.title}
-          ></span>
-        </p>
-        {/* 
+    <section id="hero" className={`${styles.hero} w-full`}>
+      <div className="w-full px-6 sm:px-12 md:px-20">
+        <div className="max-w-5xl mx-auto flex flex-col justify-center">
+          <div
+            className="w-full flex flex-col items-center md:items-start justify-center text-center md:text-left"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <h1 className={`${styles.title} text-4xl md:text-5xl`}>
+              {personal.name}
+            </h1>
+            <p className={`${styles.subtitle} mt-3 text-lg md:text-xl`}>
+              I&apos;m{" "}
+              <span
+                className="typed font-semibold text-indigo-600"
+                ref={el}
+                data-typed-items={personal.title}
+              ></span>
+            </p>
+            {/* 
         <div className="flex items-center justify-center gap-4 mt-4">
           {personal.socials &&
             personal.socials.map((social, index) => (
@@ -70,13 +69,12 @@ const Hero: React.FC = () => {
               </a>
             ))}
         </div> */}
-      </div>
+          </div>
 
-      <div
-        // className={`${styles.logoArea} w-full px-6 sm:px-12 md:px-24 lg:px-40 `}
-          className={`${styles.logoArea} w-full mt-8`}
-      >
-        <Icons />
+          <div className={`${styles.logoArea} w-full mt-8 flex justify-center md:justify-start`}>
+            <Icons />
+          </div>
+        </div>
       </div>
     </section>
   );
