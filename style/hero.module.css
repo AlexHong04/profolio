@@ -3,7 +3,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  position: relative; /* create positioning context for absolute logoArea */
   height: 100vh;
+  padding-bottom: 220px; /* reserve space at bottom for logo loop */
   background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
 }
 .title {
@@ -19,11 +21,14 @@
 
 .logoArea {
   height: 200px;
-  position: relative;
+  position: absolute; /* position inside hero */
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center; /* default center; tailwind classes can override */
   padding: 0;
   margin: 0;
 }
@@ -33,7 +38,8 @@
 }
 
 .label {
-  font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: "Poppins", Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   font-weight: 600;
   font-size: 1rem;
   color: #e5e7eb; /* gray-200 */

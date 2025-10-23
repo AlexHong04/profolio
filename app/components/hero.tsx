@@ -35,8 +35,8 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" className={`${styles.hero} w-full`}>
-      <div className="w-full px-6 sm:px-12 md:px-20">
+    <section id="hero" className={`${styles.hero} w-full relative`}>
+      <div className="w-full px-6 sm:px-12 md:px-20 pb-40">
         <div className="max-w-5xl mx-auto flex flex-col justify-center">
           <div
             className="w-full flex flex-col items-center md:items-start justify-center text-center md:text-left"
@@ -70,11 +70,12 @@ const Hero: React.FC = () => {
             ))}
         </div> */}
           </div>
-
-          <div className={`${styles.logoArea} w-full mt-8 flex justify-center md:justify-start`}>
-            <Icons />
-          </div>
         </div>
+      </div>
+
+      {/* place logo loop inside hero background at bottom */}
+      <div className={`${styles.logoArea} absolute left-0 right-0 bottom-0 flex justify-center md:justify-start`}>
+        <Icons />
       </div>
     </section>
   );
